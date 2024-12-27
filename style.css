@@ -23,7 +23,6 @@ body {
   background: var(--background-color);
   color: var(--secondary-color);
   line-height: 1.6;
-  position: relative;
 }
 
 .grid-2 {
@@ -37,10 +36,29 @@ body {
   box-sizing: border-box;
 }
 
+h1 {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  margin: 1rem 0;
+}
+
 h2 {
   color: var(--primary-color);
-  margin-top: 2rem;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
   font-weight: 600;
+  position: relative;
+}
+
+.section-2 h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 3rem;
+  height: 3px;
+  background: var(--hover-color);
+  border-radius: 3px;
 }
 
 a {
@@ -49,13 +67,20 @@ a {
   transition: var(--transition);
 }
 
-/* section 1 */
+/* Profile Section */
 .section-1 {
   padding-top: 15vh;
   text-align: center;
   position: sticky;
   top: 0;
   height: 100vh;
+}
+
+.profile {
+  background: var(--card-background);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .section-1 img {
@@ -76,38 +101,58 @@ a {
   margin: 0;
 }
 
-.section-1 h2 {
-  font-size: 2rem;
-  margin: 1rem 0;
+/* Social Links */
+.social-links {
+  margin: 1.5rem 0;
 }
 
-.section-1 a {
+.social-links a {
   font-size: 1.8rem;
   padding: 0.7rem;
   opacity: 0.8;
+  margin: 0 0.5rem;
 }
 
-/* section 2 */
-.section-2 {
-  padding: 4rem 0;
-  width: 90%;
+.social-links a:hover {
+  color: var(--hover-color);
+  opacity: 1;
+  transform: translateY(-3px);
 }
 
-.section-2 h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  position: relative;
+/* Contact */
+.contact {
+  margin-top: 1.5rem;
 }
 
-.section-2 h2::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -0.5rem;
-  width: 3rem;
-  height: 3px;
+.email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--card-background);
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  transition: var(--transition);
+  font-size: 0.9rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: break-all;
+}
+
+.email-link i {
+  flex-shrink: 0;
+}
+
+.email-link:hover {
   background: var(--hover-color);
-  border-radius: 3px;
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+/* Projects Section */
+.section-2 {
+  padding: 4rem 2rem 4rem 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-2 p {
@@ -117,14 +162,10 @@ a {
 }
 
 .section-2 a {
-  display: inline-block;
-  font-size: 1.1rem;
   color: var(--primary-color);
-  margin-bottom: 0.5rem;
   font-weight: 500;
 }
 
-/* project */
 .project {
   background: var(--card-background);
   padding: 1.5rem;
@@ -141,28 +182,21 @@ a {
 .project p {
   font-size: 0.95rem;
   margin: 0.8rem 0 0 0;
-  color: var(--secondary-color);
 }
 
-/* animations / utilities */
-.section-2 a:hover {
+.fas.fa-map-marker-alt {
+  margin-right: 0.5rem;
   color: var(--hover-color);
-  transform: translateX(5px);
 }
 
-.section-1 a:hover {
-  color: var(--hover-color);
-  opacity: 1;
-  transform: translateY(-3px);
-}
-
-/* media queries */
+/* Media Queries */
 @media (max-width: 1024px) {
   .grid-2 {
     gap: 1rem;
     padding: 0 1.5rem;
   }
   .section-2 {
+    padding: 4rem 0;
     width: 100%;
   }
   .section-1 {
@@ -177,19 +211,15 @@ a {
     width: calc(100% - 2rem);
   }
   .section-1 {
-    padding: 2rem 1rem;
     position: static;
     height: auto;
-    width: 100%;
-    box-sizing: border-box;
+    padding: 2rem 1rem;
   }
   .section-2 {
-    padding: 1rem;
-    width: 100%;
-    box-sizing: border-box;
+    padding: 2rem 1rem;
   }
-  .project {
-    padding: 1.2rem;
+  .profile {
+    padding: 1.5rem;
   }
   h1 {
     font-size: 1.8rem;
@@ -201,17 +231,15 @@ a {
     height: 150px;
     width: 150px;
   }
-  .profile {
-    padding: 1.5rem;
-  }
-  .section-1 a {
+  .social-links a {
     font-size: 1.5rem;
     padding: 0.5rem;
   }
   .email-link {
     width: 100%;
     justify-content: center;
-    margin-top: 1rem;
+    font-size: 0.85rem;
+    padding: 0.8rem;
   }
 }
 
@@ -222,8 +250,6 @@ a {
   }
   .section-1, .section-2 {
     padding: 1rem 0.5rem;
-    width: 100%;
-    box-sizing: border-box;
   }
   .project {
     padding: 1rem;
@@ -231,70 +257,14 @@ a {
   .project p {
     font-size: 0.9rem;
   }
-  .section-2 a {
-    font-size: 1rem;
-  }
   .social-links a {
     margin: 0 0.3rem;
   }
   body {
     font-size: 0.9rem;
   }
-}
-
-/* Add smooth scrolling for iOS */
-@supports (-webkit-overflow-scrolling: touch) {
-  body {
-    -webkit-overflow-scrolling: touch;
+  .email-link {
+    font-size: 0.8rem;
+    padding: 0.7rem;
   }
-}
-
-/* Prevent text size adjustment on orientation change */
-html {
-  -webkit-text-size-adjust: 100%;
-}
-
-.profile {
-  background: var(--card-background);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.social-links {
-  margin-top: 1.5rem;
-}
-
-.social-links a {
-  margin: 0 0.5rem;
-}
-
-.email-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--card-background);
-  padding: 0.8rem 1.2rem;
-  border-radius: 6px;
-  transition: var(--transition);
-}
-
-.email-link:hover {
-  background: var(--hover-color);
-  color: var(--primary-color);
-}
-
-.about, .projects, .contact {
-  margin-bottom: 3rem;
-}
-
-.fas.fa-map-marker-alt {
-  margin-right: 0.5rem;
-  color: var(--hover-color);
-}
-
-h1 {
-  color: var(--primary-color);
-  font-size: 2.2rem;
-  margin: 1rem 0;
 }
