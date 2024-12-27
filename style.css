@@ -23,7 +23,7 @@
   --shadow-default: 0 4px 6px rgba(0, 0, 0, 0.1);
   --radius-default: 12px;
   --radius-sm: 6px;
-  --max-width: 1400px;
+  --max-width: 1200px;
 }
 
 /* Reset and base styles */
@@ -169,11 +169,17 @@ a {
 
 .project {
   background: var(--color-card);
-  padding: var(--space-md);
   border-radius: var(--radius-default);
   margin-bottom: var(--space-sm);
   transition: transform var(--transition-default),
               box-shadow var(--transition-default);
+}
+
+.project a {
+  color: var(--color-primary);
+  text-decoration: none;
+  display: block;
+  padding: var(--space-md);
 }
 
 .project:hover,
@@ -182,16 +188,17 @@ a {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.project a {
+.project h3 {
   color: var(--color-primary);
   font-weight: 500;
   font-size: 1.1rem;
-  display: inline-block;
+  margin-bottom: var(--space-xs);
 }
 
 .project p {
+  color: var(--color-secondary);
   font-size: 0.95rem;
-  margin: var(--space-xs) 0 0;
+  margin: 0;
   line-height: 1.6;
 }
 
